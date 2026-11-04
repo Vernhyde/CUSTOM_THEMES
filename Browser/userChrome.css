@@ -1,0 +1,112 @@
+/* Vernhyde Amber - Complete Custom Firefox Theme (Clean Circular Hover Fix) */
+:root {
+    --tab-selected-bgcolor: #16191d !important;
+    --tab-selected-color: #fee344 !important;
+    --tab-line-color: #ffa72e !important;
+
+    /* Search Box (Dark Elevated Shade #16191d) */
+    --toolbar-field-background-color: #16191d !important;
+    --toolbar-field-color: #ffe3bb !important;
+    --toolbar-field-border-color: #3a3235 !important;
+    --toolbar-field-focus-border-color: #ffa72e !important;
+}
+
+/* 1. Full Navigation Bar Container (Fur Brown #6f534c) */
+#nav-bar {
+background-color: #6f534c !important;
+background-image: none !important;
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 2. Force Square Tabs (Remove Rounded Corners) */
+.tabbrowser-tab,
+.tab-background,
+.tab-close-button {
+    border-radius: 0px !important;
+}
+
+/* 3. Active Tab Styling with Amber Glow & Gradient */
+.tabbrowser-tab[selected] .tab-background {
+    background: linear-gradient(180deg, #1f2329 0%, #16191d) !important;
+    border: 1px solid #ffa72e !important;
+    border-bottom: none !important;
+    box-shadow: 0 0 8px 2px rgba(255, 167, 46, 0.4) !important;
+}
+
+/* 4. Inactive Background Tabs */
+.tabbrowser-tab:not([selected]) .tab-background {
+    background-color: #111417 !important;
+    border: 1px solid #3a3235 !important;
+}
+
+/* 5. Inactive Tabs Hover State */
+.tabbrowser-tab:not([selected]):hover .tab-background {
+    background-color: #16191d !important;
+    border: 1px solid #ffa72e !important;
+    border-bottom: none !important;
+}
+
+.tabbrowser-tab:not([selected]):hover .tab-label {
+    color: #fee344 !important;
+}
+
+/* 6. Clean Circular Hover Styling for Toolbar Buttons (New Tab, Menu, Account, List Tabs) */
+#tabs-newtab-button:hover > .toolbarbutton-icon,
+#alltabs-button:hover > .toolbarbutton-badge-stack,
+#fxa-toolbar-menu-button:hover > .toolbarbutton-badge-stack,
+#PanelUI-menu-button:hover > .toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1:not([disabled]):hover > .toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1:not([disabled]):hover > .toolbarbutton-icon {
+background-color: #16191d !important;
+fill: #fee344 !important;
+border: 1px solid #ffa72e !important;
+border-radius: 50% !important;
+box-sizing: border-box !important;
+}
+
+/* Override default Firefox background circle fills that cause the gray egg shape */
+#tabs-newtab-button:hover,
+#alltabs-button:hover,
+#fxa-toolbar-menu-button:hover,
+#PanelUI-menu-button:hover,
+.toolbarbutton-1:not([disabled]):hover {
+    background-color: transparent !important;
+}
+
+/* 7. URL Bar Container Background */
+#urlbar-background {
+background-color: #16191d !important;
+border: 1px solid #3a3235 !important;
+}
+
+#urlbar[focused] #urlbar-background {
+border-color: #ffa72e !important;
+box-shadow: 0 0 0 2px rgba(255, 167, 46, 0.25) !important;
+}
+
+/* 8. Personal Bookmarks Toolbar */
+#PersonalToolbar {
+background-color: #6f534c !important;
+color: #dcdcdc !important;
+padding: 3px 6px !important;
+border-top: 1px solid #3a3235 !important;
+}
+
+#personal-bookmarks .bookmark-item {
+color: #ffe3bb !important;
+padding: 2px 6px !important;
+border-radius: 2px !important;
+}
+
+#personal-bookmarks .bookmark-item:hover {
+background-color: #16191d !important;
+color: #fee344 !important;
+border: 1px solid #ffa72e !important;
+}
+
+/* 9. Context Menus & Popups Hover Styling */
+menuitem:hover, menu:hover, .panel-subview-body .subviewbutton:hover {
+    background-color: #16191d !important;
+    color: #fee344 !important;
+    border-color: #ffa72e !important;
+}
