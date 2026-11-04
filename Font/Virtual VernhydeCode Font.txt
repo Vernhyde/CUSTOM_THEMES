@@ -1,0 +1,25 @@
+mkdir -p ~/.config/fontconfig/conf.d
+
+printf '%s\n' \
+'<?xml version="1.0"?>' \
+'<!DOCTYPE fontconfig SYSTEM "urn:fontconfig:fonts.dtd">' \
+'<fontconfig>' \
+'  <!-- Match VernhydeCode Italic / Oblique -> VictorMono NF -->' \
+'  <match target="pattern">' \
+'    <test name="family"><string>VernhydeCode</string></test>' \
+'    <test name="slant" compare="not_eq"><const>roman</const></test>' \
+'    <edit name="family" mode="assign" binding="strong">' \
+'      <string>VictorMono NF</string>' \
+'    </edit>' \
+'  </match>' \
+'  <!-- Match VernhydeCode Upright -> JetBrainsMono NF -->' \
+'  <match target="pattern">' \
+'    <test name="family"><string>VernhydeCode</string></test>' \
+'    <edit name="family" mode="assign" binding="strong">' \
+'      <string>JetBrainsMono NF</string>' \
+'    </edit>' \
+'  </match>' \
+'</fontconfig>' > ~/.config/fontconfig/conf.d/10-vernhydecode.conf
+
+rm -rf ~/.cache/fontconfig
+fc-cache -rfv
