@@ -1,8 +1,8 @@
---- XML / CSPROJ SCOPE TEST (Paste into a .csproj buffer) ---
+<!-- === XML / CSPROJ SCOPE TEST (Valid XML Comment Header so Tree-Sitter Parses Line 2) === -->
 <Project Sdk="Microsoft.NET.Sdk">
-  <!-- TAG: #e5a93d | DELIMITER (<, >): #8a8280 | ATTRIBUTE: #f09654 | STRING: #7fa36b -->
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework> <!-- INNER TEXT: #dcdcdc -->
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <!-- TAG: #e5a93d / #b55400 | DELIMITER (<, >): #8a8280 / #6f534c | ATTRIBUTE: #f09654 / #b04818 | STRING: #7fa36b / #3b5e2b -->
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework> <!-- INNER TEXT: #dcdcdc / #26181c -->
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 </Project>

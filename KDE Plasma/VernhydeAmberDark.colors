@@ -130,8 +130,8 @@ ForegroundPositive=127,163,107
 ForegroundVisited=168,92,114
 
 [General]
-ColorScheme=VernhydeAmber
-Name=Vernhyde Amber
+ColorScheme=VernhydeAmberDark
+Name=Vernhyde Amber Dark
 shadeSortColumn=true
 
 [KDE]

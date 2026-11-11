@@ -1,16 +1,22 @@
-Token / System Role - Base Hex - Bright / High-Vis Variant - Palette Source & Syntax Assignment
-BG0 (Deep Canvas) - #0d0f11 - #111417 - Base Editor, Terminal, & Window Canvas
-BG1 (Elevated UI) - #16191d - #1f2329 - Active Line, Sidebars, Panels, Cards
-BG2 (Warm Tint) - #26181c - #4b2b31 - Suit Jacket — Selection BG, Diff/Error Line Tint
-UI Border / Muted - #3a3235 - #53383d - Suit Pants — Split Borders, Inactive Tabs
-Original Dark Earth - #6f534c - #593d45 - Dark Fur & Hoof — Subtle UI Badges, Fold Markers
-Comment / Muted FG - #8a8280 - #afabaa - Grey Fur — Comments, Line Numbers, Delimiters
-Doc Comment / Subtext - #997b73 - #a8845e - Light Fur & M81 Khaki — Docstrings, Secondary Text
-Primary Foreground - #dcdcdc - #ffe3bb - Neutral White & Skull Bone — Variables, Types, Structs
-Primary Accent (Gold) - #e5a93d - #ffa72e - Logo Gold & Sigil — Keywords, Operators, Tags, Cursor
-ANSI Red (Crimson) - #d9385a - #ff5277 - Flesh Gradient (Boosted) — Macros, self, Errors, Deletions
-ANSI Green (M81 Moss) - #5f7a50 - #7fa36b - M81 Woodland Green & Jacket — Strings, Git Additions
-ANSI Yellow (Eye) - #e5a93d - #fee344 - Logo Gold & Eye Yellow — Numbers, Booleans, Constants
-ANSI Blue (Ochre/Horn) - #c87a53 - #e69870 - Horn & Jacket Trim — Functions, Methods, Properties
-ANSI Magenta (Plum) - #a85c72 - #c97a90 - Boosted Hoof — Rust Lifetimes ('a), Attributes, Preprocessor
-ANSI Cyan (Slate) - #5a9aa8 - #7ec1cf - Beach Water — Escape Chars (\n), Regex, Enum Variants
+========================================================================================================================
+VERNHYDE AMBER — MASTER PALETTE & SYNTAX ARCHITECTURE (DARK & WARM PARCHMENT LIGHT)
+========================================================================================================================
+
+Token / System Role        | Dark Base | Dark High-Vis | Light Base | Light High-Vis | Palette Source & Syntax Assignment
+---------------------------|-----------|---------------|------------|----------------|--------------------------------------------------------------
+BG0 (Deep / Main Canvas)   | #0d0f11   | #111417       | #f4e6d2    | #e8d5bc        | Base Editor, Terminal, & Window Canvas (Charcoal / Parchment)
+BG1 (Elevated UI / Panels) | #16191d   | #1f2329       | #eedcc5    | #dfd0ba        | Active Line, Sidebars, Panels, Cards, Nav Bars
+BG2 (Warm Tint / Highlight)| #26181c   | #4b2b31       | #e5cdab    | #d4c0a5        | Suit Jacket / Warm Tan — Selection BG, Diff/Highlight Tint
+UI Border / Muted          | #3a3235   | #53383d       | #c4b097    | #997b73        | Suit Pants / Light Fur — Split Borders, Inactive Tabs, Gutter
+Original Dark Earth        | #6f534c   | #593d45       | #6f534c    | #593d45        | Dark Fur & Hoof — Dark Nav Bar, Subtle UI Badges, Fold Markers
+Comment / Muted FG         | #8a8280   | #afabaa       | #6f534c    | #53383d        | Grey Fur / Dark Fur — Comments, Punctuation, Delimiters
+Doc Comment / Subtext      | #997b73   | #a8845e       | #825c38    | #6f534c        | Light Fur & M81 Khaki — Docstrings (`///`, `//!`), Subtext
+Primary Foreground         | #dcdcdc   | #ffe3bb       | #26181c    | #16191d        | Neutral White & Skull Bone / Deep Suit Jacket — Variables, Types
+Primary Accent (Gold/Amber)| #e5a93d   | #ffa72e       | #b55400    | #9c4119        | Logo Gold & Sigil / Burnt Amber — Keywords, Operators, Tags, Cursor
+Canyon Ochre (Attributes)  | #f09654   | #ffa72e       | #b04818    | #c87a53        | Canyon Ochre / Rust — Rust Attributes (`#[...]`), Derive Traits, Meta
+ANSI Red (Crimson)         | #d9385a   | #ff5277       | #b81d3d    | #cf1f45        | Flesh Gradient — Macros (`info!`), `self`, Errors, Deletions
+ANSI Green (M81 Moss)      | #5f7a50   | #7fa36b       | #3b5e2b    | #5f7a50        | M81 Woodland Green & Leaf — Strings, Text Literals, Git Additions
+ANSI Yellow (Eye / Bronze) | #e5a93d   | #fee344       | #8a6200    | #b55400        | Eye Yellow / Antique Bronze — Numbers, Booleans, Constants
+ANSI Blue (Ochre / Horn)   | #c87a53   | #e69870       | #6e4228    | #9c4119        | Horn & Jacket Trim — Functions (`#e69870`/`#9c4119`), Properties (`#c87a53`/`#6e4228`)
+ANSI Magenta (Hoof Plum)   | #a85c72   | #c97a90       | #8c3852    | #a85c72        | Boosted Hoof — Rust Lifetimes (`'a`), Labels (`'label`)
+ANSI Cyan (Oasis Slate)    | #5a9aa8   | #7ec1cf       | #1f6878    | #2b6f7e        | Beach Water — Escape Chars (`\n`), Regex, Enum Variants, Constructors

@@ -1,3 +1,50 @@
+/* ==========================================================================
+   Vernhyde Amber - Firefox Dual Theme (Dark & Warm Parchment Light)
+   ========================================================================== */
+
+/* --- Shared Structural Rules (Applies to BOTH Dark and Light Mode) --- */
+
+/* Force Square Tabs (Remove Rounded Corners) */
+.tabbrowser-tab,
+.tab-background,
+.tab-close-button {
+    border-radius: 0px !important;
+}
+
+/* Clean Circular Hover Geometry for Toolbar Buttons */
+#tabs-newtab-button:hover>.toolbarbutton-icon,
+#alltabs-button:hover>.toolbarbutton-badge-stack,
+#fxa-toolbar-menu-button:hover>.toolbarbutton-badge-stack,
+#PanelUI-menu-button:hover>.toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1:not([disabled]):hover>.toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1:not([disabled]):hover>.toolbarbutton-icon {
+    border-radius: 50% !important;
+    box-sizing: border-box !important;
+}
+
+/* Override default Firefox background circle fills that cause the gray egg shape */
+#tabs-newtab-button:hover,
+#alltabs-button:hover,
+#fxa-toolbar-menu-button:hover,
+#PanelUI-menu-button:hover,
+.toolbarbutton-1:not([disabled]):hover {
+    background-color: transparent !important;
+}
+
+/* Personal Bookmarks Structural Padding */
+#PersonalToolbar {
+    padding: 3px 6px !important;
+}
+
+#personal-bookmarks .bookmark-item {
+    padding: 2px 6px !important;
+    border-radius: 2px !important;
+}
+
+
+/* ==========================================================================
+   DARK MODE (Vernhyde Amber Dark)
+   ========================================================================== */
 @media (prefers-color-scheme: dark) {
     :root {
         --tab-selected-bgcolor: #16191d !important;
@@ -18,28 +65,21 @@
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
     }
 
-    /* 2. Force Square Tabs (Remove Rounded Corners) */
-    .tabbrowser-tab,
-    .tab-background,
-    .tab-close-button {
-        border-radius: 0px !important;
-    }
-
-    /* 3. Active Tab Styling with Amber Glow & Gradient */
+    /* 2. Active Tab Styling with Amber Glow & Gradient */
     .tabbrowser-tab[selected] .tab-background {
-        background: linear-gradient(180deg, #1f2329 0%, #16191d) !important;
+        background: linear-gradient(180deg, #1f2329 0%, #16191d 100%) !important;
         border: 1px solid #ffa72e !important;
         border-bottom: none !important;
         box-shadow: 0 0 8px 2px rgba(255, 167, 46, 0.4) !important;
     }
 
-    /* 4. Inactive Background Tabs */
+    /* 3. Inactive Background Tabs */
     .tabbrowser-tab:not([selected]) .tab-background {
         background-color: #111417 !important;
         border: 1px solid #3a3235 !important;
     }
 
-    /* 5. Inactive Tabs Hover State */
+    /* 4. Inactive Tabs Hover State */
     .tabbrowser-tab:not([selected]):hover .tab-background {
         background-color: #16191d !important;
         border: 1px solid #ffa72e !important;
@@ -50,7 +90,7 @@
         color: #fee344 !important;
     }
 
-    /* 6. Clean Circular Hover Styling for Toolbar Buttons (New Tab, Menu, Account, List Tabs) */
+    /* 5. Toolbar Buttons Circular Hover Colors */
     #tabs-newtab-button:hover>.toolbarbutton-icon,
     #alltabs-button:hover>.toolbarbutton-badge-stack,
     #fxa-toolbar-menu-button:hover>.toolbarbutton-badge-stack,
@@ -60,20 +100,9 @@
         background-color: #16191d !important;
         fill: #fee344 !important;
         border: 1px solid #ffa72e !important;
-        border-radius: 50% !important;
-        box-sizing: border-box !important;
     }
 
-    /* Override default Firefox background circle fills that cause the gray egg shape */
-    #tabs-newtab-button:hover,
-    #alltabs-button:hover,
-    #fxa-toolbar-menu-button:hover,
-    #PanelUI-menu-button:hover,
-    .toolbarbutton-1:not([disabled]):hover {
-        background-color: transparent !important;
-    }
-
-    /* 7. URL Bar Container Background */
+    /* 6. URL Bar Container Background */
     #urlbar-background {
         background-color: #16191d !important;
         border: 1px solid #3a3235 !important;
@@ -84,18 +113,15 @@
         box-shadow: 0 0 0 2px rgba(255, 167, 46, 0.25) !important;
     }
 
-    /* 8. Personal Bookmarks Toolbar */
+    /* 7. Personal Bookmarks Toolbar */
     #PersonalToolbar {
         background-color: #6f534c !important;
         color: #dcdcdc !important;
-        padding: 3px 6px !important;
         border-top: 1px solid #3a3235 !important;
     }
 
     #personal-bookmarks .bookmark-item {
         color: #ffe3bb !important;
-        padding: 2px 6px !important;
-        border-radius: 2px !important;
     }
 
     #personal-bookmarks .bookmark-item:hover {
@@ -104,7 +130,7 @@
         border: 1px solid #ffa72e !important;
     }
 
-    /* 9. Context Menus & Popups Hover Styling */
+    /* 8. Context Menus & Popups Hover Styling */
     menuitem:hover,
     menu:hover,
     .panel-subview-body .subviewbutton:hover {
@@ -114,62 +140,110 @@
     }
 }
 
+
+/* ==========================================================================
+   LIGHT MODE (Vernhyde Amber Light - Warm Parchment)
+   ========================================================================== */
 @media (prefers-color-scheme: light) {
     :root {
-        --tab-selected-bgcolor: #ffe3bb !important;
-        --tab-selected-color: #c87a53 !important;
-        --tab-line-color: #c87a53 !important;
+        --tab-selected-bgcolor: #f4e6d2 !important;
+        --tab-selected-color: #b55400 !important;
+        --tab-line-color: #b55400 !important;
 
-        /* Search Box (Warm Elevated Shade) */
-        --toolbar-field-background-color: #ecd6ab !important;
-        --toolbar-field-color: #3a3235 !important;
-        --toolbar-field-border-color: #997b73 !important;
-        --toolbar-field-focus-border-color: #c87a53 !important;
+        /* Search Box (Warm Parchment Input #f4e6d2) */
+        --toolbar-field-background-color: #f4e6d2 !important;
+        --toolbar-field-color: #26181c !important;
+        --toolbar-field-border-color: #c4b097 !important;
+        --toolbar-field-focus-border-color: #b55400 !important;
     }
 
-    /* Light Muted Fur Brown Nav Bar */
+    /* 1. Full Navigation Bar Container (Warm Tan #dfd0ba) */
     #nav-bar {
-        background-color: #e5cdab !important;
+        background-color: #dfd0ba !important;
+        background-image: none !important;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
     }
 
-    /* Active Tab */
+    /* 2. Active Tab Styling with Deep Sigil Amber Border & Gradient */
     .tabbrowser-tab[selected] .tab-background {
-        background: linear-gradient(180deg, #f9edd9 0%, #ffe3bb) !important;
-        border: 1px solid #c87a53 !important;
+        background: linear-gradient(180deg, #faf1e4 0%, #f4e6d2 100%) !important;
+        border: 1px solid #b55400 !important;
         border-bottom: none !important;
-        box-shadow: 0 0 8px 2px rgba(200, 122, 83, 0.3) !important;
+        box-shadow: 0 0 8px 2px rgba(181, 84, 0, 0.25) !important;
     }
 
-    /* Inactive Tabs */
+    .tabbrowser-tab[selected] .tab-label {
+        color: #b55400 !important;
+        font-weight: 600 !important;
+    }
+
+    /* 3. Inactive Background Tabs */
     .tabbrowser-tab:not([selected]) .tab-background {
-        background-color: #e5cdab !important;
-        border: 1px solid #997b73 !important;
+        background-color: #e8d5bc !important;
+        border: 1px solid #c4b097 !important;
     }
 
+    .tabbrowser-tab:not([selected]) .tab-label {
+        color: #6f534c !important;
+    }
+
+    /* 4. Inactive Tabs Hover State */
     .tabbrowser-tab:not([selected]):hover .tab-background {
-        background-color: #ecd6ab !important;
-        border: 1px solid #c87a53 !important;
+        background-color: #eedcc5 !important;
+        border: 1px solid #b55400 !important;
+        border-bottom: none !important;
     }
 
     .tabbrowser-tab:not([selected]):hover .tab-label {
-        color: #c87a53 !important;
+        color: #9c4119 !important;
     }
 
-    /* Icons */
+    /* 5. Toolbar Buttons Circular Hover Colors */
     #tabs-newtab-button:hover>.toolbarbutton-icon,
+    #alltabs-button:hover>.toolbarbutton-badge-stack,
+    #fxa-toolbar-menu-button:hover>.toolbarbutton-badge-stack,
+    #PanelUI-menu-button:hover>.toolbarbutton-badge-stack,
+    #nav-bar .toolbarbutton-1:not([disabled]):hover>.toolbarbutton-badge-stack,
     #nav-bar .toolbarbutton-1:not([disabled]):hover>.toolbarbutton-icon {
-        background-color: #ecd6ab !important;
-        fill: #c87a53 !important;
-        border: 1px solid #c87a53 !important;
+        background-color: #f4e6d2 !important;
+        fill: #b55400 !important;
+        border: 1px solid #b55400 !important;
     }
 
-    /* URL Bar */
+    /* 6. URL Bar Container Background */
     #urlbar-background {
-        background-color: #ecd6ab !important;
-        border: 1px solid #997b73 !important;
+        background-color: #f4e6d2 !important;
+        border: 1px solid #c4b097 !important;
     }
 
     #urlbar[focused] #urlbar-background {
-        border-color: #c87a53 !important;
+        border-color: #b55400 !important;
+        box-shadow: 0 0 0 2px rgba(181, 84, 0, 0.2) !important;
+    }
+
+    /* 7. Personal Bookmarks Toolbar */
+    #PersonalToolbar {
+        background-color: #dfd0ba !important;
+        color: #26181c !important;
+        border-top: 1px solid #c4b097 !important;
+    }
+
+    #personal-bookmarks .bookmark-item {
+        color: #26181c !important;
+    }
+
+    #personal-bookmarks .bookmark-item:hover {
+        background-color: #f4e6d2 !important;
+        color: #b55400 !important;
+        border: 1px solid #b55400 !important;
+    }
+
+    /* 8. Context Menus & Popups Hover Styling */
+    menuitem:hover,
+    menu:hover,
+    .panel-subview-body .subviewbutton:hover {
+        background-color: #eedcc5 !important;
+        color: #b55400 !important;
+        border-color: #b55400 !important;
     }
 }
