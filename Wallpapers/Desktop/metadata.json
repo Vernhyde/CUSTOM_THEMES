@@ -1,0 +1,19 @@
+{
+  "KPlugin": {
+    "Id": "VernhydeAmber",
+    "Name": "Vernhyde Amber Dynamic",
+    "Description": "Custom Warm Parchment Light and Charcoal Dark Mode Wallpaper",
+    "Version": "1.0",
+    "ServiceTypes": [
+      "Plasma/Wallpaper"
+    ],
+    "Authors": [
+      {
+        "Name": "Vernhyde"
+      }
+    ]
+  },
+  "KPackageStructure": "Plasma/Wallpaper",
+  "X-Plasma-API-Minimum-Version": "6.0",
+  "X-KDE-CrossFade": true
+}
