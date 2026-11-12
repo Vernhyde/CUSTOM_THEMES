@@ -15,7 +15,7 @@
 
 ![Vernhyde Amber Theme Preview](assets/preview.png)
 
-> **Interactive Swatch & UI Tester:** Open the **[Live GitHub Pages Spec Sheet](https://vernhyde.github.io/Custom_Themes/)** to toggle between Split View, Dark Mode, and Light Mode, or click any of the 64 swatches to copy its hex code.
+> **Interactive Swatch & UI Tester:** Open the **[Live GitHub Pages Spec Sheet](https://vernhyde.github.io/CUSTOM_THEMES/)** to toggle between Split View, Dark Mode, and Light Mode, or click any of the 64 swatches to copy its hex code.
 
 ---
 
