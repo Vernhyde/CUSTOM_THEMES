@@ -1,0 +1,1100 @@
+<!--
+╔══════════════════════════════════════════════════════════════════════════╗
+║  VERNHYDE AMBER — DUAL-STATE PALETTE & SYNTAX SPEC (DARK & LIGHT)        ║
+║  Dark Canvas : #0d0f11  |  Sigil Gold : #e5a93d  |  Skull Bone : #ffe3bb ║
+║  Light Canvas: #f4e6d2  |  Deep Amber : #b55400  |  Deep Ink   : #26181c ║
+║  Contact     : @vernhyde (Discord) — Open in browser for live copy chips ║
+╚══════════════════════════════════════════════════════════════════════════╝
+-->
+<!DOCTYPE html>
+<html lang="en" data-page="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vernhyde Amber — Master Theme & Palette Reference</title>
+
+    <!-- Discord & GitHub OpenGraph Rich Embed Tags -->
+    <meta name="theme-color" content="#e5a93d">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vernhyde Amber — Dual-State Theme & Syntax Architecture">
+    <meta property="og:description"
+        content="Eye-safe Dark Charcoal (#0d0f11) & Warm Parchment Light (#f4e6d2) palette for Zed, Ghostty, KDE Plasma, Firefox, and Discord. Contact: @vernhyde">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/Vernhyde/Custom_Themes/main/assets/preview.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+        /* ==========================================================================
+           1. THEME VARIABLES (SCOPED TO .theme-dark AND .theme-light)
+           ========================================================================== */
+        :root,
+        [data-page="dark"],
+        .theme-dark {
+            --bg0-base: #0d0f11;
+            --bg0-hi: #111417;
+            --bg1-base: #16191d;
+            --bg1-hi: #1f2329;
+            --bg2-base: #26181c;
+            --bg2-hi: #4b2b31;
+            --border-base: #3a3235;
+            --border-hi: #53383d;
+            --earth-base: #6f534c;
+            --earth-hi: #593d45;
+            --comment-base: #8a8280;
+            --comment-hi: #afabaa;
+            --doc-base: #997b73;
+            --doc-hi: #a8845e;
+            --fg-base: #dcdcdc;
+            --fg-hi: #ffe3bb;
+            --accent-base: #e5a93d;
+            --accent-hi: #ffa72e;
+            --ochre-base: #f09654;
+            --ochre-hi: #ffa72e;
+            --red-base: #d9385a;
+            --red-hi: #ff5277;
+            --green-base: #5f7a50;
+            --green-hi: #7fa36b;
+            --yellow-base: #e5a93d;
+            --yellow-hi: #fee344;
+            --blue-base: #c87a53;
+            --blue-hi: #e69870;
+            --magenta-base: #a85c72;
+            --magenta-hi: #c97a90;
+            --cyan-base: #5a9aa8;
+            --cyan-hi: #7ec1cf;
+
+            --navbar-bg: #6f534c;
+            --nav-btns: #ffe3bb;
+            --tab-glow: rgba(255, 167, 46, 0.35);
+            --badge-green-bg: rgba(127, 163, 107, 0.15);
+
+            --logo-bg: #0d0f11;
+            --logo-h: #ffe3bb;
+            --logo-v: #e5a93d;
+        }
+
+        [data-page="light"],
+        .theme-light {
+            --bg0-base: #f4e6d2;
+            --bg0-hi: #e8d5bc;
+            --bg1-base: #eedcc5;
+            --bg1-hi: #dfd0ba;
+            --bg2-base: #e5cdab;
+            --bg2-hi: #d4c0a5;
+            --border-base: #c4b097;
+            --border-hi: #997b73;
+            --earth-base: #6f534c;
+            --earth-hi: #593d45;
+            --comment-base: #6f534c;
+            --comment-hi: #53383d;
+            --doc-base: #825c38;
+            --doc-hi: #6f534c;
+            --fg-base: #26181c;
+            --fg-hi: #16191d;
+            --accent-base: #b55400;
+            --accent-hi: #9c4119;
+            --ochre-base: #b04818;
+            --ochre-hi: #c87a53;
+            --red-base: #b81d3d;
+            --red-hi: #cf1f45;
+            --green-base: #3b5e2b;
+            --green-hi: #5f7a50;
+            --yellow-base: #8a6200;
+            --yellow-hi: #b55400;
+            --blue-base: #6e4228;
+            --blue-hi: #9c4119;
+            --magenta-base: #8c3852;
+            --magenta-hi: #a85c72;
+            --cyan-base: #1f6878;
+            --cyan-hi: #2b6f7e;
+
+            --navbar-bg: #dfd0ba;
+            --nav-btns: #26181c;
+            --tab-glow: rgba(181, 84, 0, 0.25);
+            --badge-green-bg: rgba(59, 94, 43, 0.15);
+
+            --logo-bg: #f4e6d2;
+            --logo-h: #26181c;
+            --logo-v: #b55400;
+        }
+
+        /* ==========================================================================
+           2. BASE LAYOUT, BRAND HEADER & DISCORD CONTACT BADGE
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg0-base);
+            color: var(--fg-base);
+            font-family: "VernhydeCode", "JetBrainsMono Nerd Font", monospace;
+            padding: 1.5rem 2rem;
+            margin: 0;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-base);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .brand-identity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-sigil {
+            width: 54px;
+            height: 54px;
+            border: 1px solid var(--border-base);
+            border-radius: 6px;
+            flex-shrink: 0;
+        }
+
+        h1 {
+            color: var(--accent-base);
+            margin: 0 0 0.25rem 0;
+            font-size: 1.45rem;
+        }
+
+        .subtitle {
+            color: var(--comment-base);
+            margin: 0;
+            font-size: 0.82rem;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.6rem;
+        }
+
+        .discord-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, #26181c, #4b2b31, #6f534c);
+            border: 1px solid var(--accent-base);
+            padding: 0.35rem 0.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.8rem;
+            color: #ffe3bb;
+            transition: transform 0.1s, box-shadow 0.15s;
+        }
+
+        .discord-badge:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 8px var(--tab-glow);
+        }
+
+        .discord-prism-name {
+            font-weight: bold;
+            background: linear-gradient(90deg, #e5a93d, #d48826, #b55400, #c87a53, #e5a93d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: var(--bg1-base);
+            color: var(--fg-base);
+            border: 1px solid var(--border-base);
+            padding: 0.45rem 0.9rem;
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn.active,
+        .btn:hover {
+            border-color: var(--accent-base);
+            color: var(--accent-base);
+            background-color: var(--bg1-hi);
+        }
+
+        .section-heading {
+            font-size: 1rem;
+            color: var(--accent-base);
+            border-bottom: 1px solid var(--border-base);
+            padding-bottom: 0.4rem;
+            margin: 1.8rem 0 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .section-heading span {
+            font-size: 0.75rem;
+            color: var(--comment-base);
+            font-weight: normal;
+        }
+
+        /* ==========================================================================
+           3. DUAL-MODE WORKSPACE PANELS
+           ========================================================================== */
+        .dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .dual-grid.single-col {
+            grid-template-columns: 1fr;
+        }
+
+        .theme-card {
+            background-color: var(--bg0-base);
+            color: var(--fg-base);
+            border: 2px solid var(--border-base);
+            border-radius: 8px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.15rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-base);
+            padding-bottom: 0.6rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .card-title-group {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .mini-sigil {
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--border-base);
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1rem;
+            color: var(--accent-base);
+        }
+
+        .card-tag {
+            font-size: 0.74rem;
+            padding: 2px 8px;
+            background-color: var(--bg1-base);
+            border: 1px solid var(--border-base);
+            color: var(--fg-hi);
+            border-radius: 4px;
+        }
+
+        .brand-showcase {
+            display: grid;
+            grid-template-columns: 96px 1fr;
+            gap: 1rem;
+            background-color: var(--bg1-base);
+            border: 1px solid var(--border-base);
+            border-radius: 6px;
+            padding: 0.75rem;
+            align-items: center;
+        }
+
+        .sigil-preview-box {
+            width: 96px;
+            height: 96px;
+            border: 1px solid var(--border-hi);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .discord-card-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            font-size: 0.76rem;
+        }
+
+        .discord-gradient-bar {
+            height: 24px;
+            border-radius: 4px;
+            border: 1px solid var(--border-hi);
+            background: linear-gradient(135deg, #26181c, #4b2b31, #6f534c, #b55400, #e5a93d);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            font-size: 0.68rem;
+            font-weight: bold;
+            color: #ffe3bb;
+            text-shadow: 0 1px 2px #0d0f11;
+        }
+
+        .discord-gradient-bar span {
+            cursor: pointer;
+            padding: 1px 4px;
+            border-radius: 2px;
+            background: rgba(13, 15, 17, 0.45);
+        }
+
+        .browser-window {
+            background-color: var(--bg0-base);
+            border: 1px solid var(--border-base);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .tab-bar {
+            display: flex;
+            gap: 2px;
+            background-color: var(--bg0-hi);
+            padding: 6px 6px 0 6px;
+            border-bottom: 1px solid var(--border-base);
+        }
+
+        .mock-tab {
+            background-color: var(--bg0-hi);
+            border: 1px solid var(--border-base);
+            padding: 0.35rem 0.85rem;
+            font-size: 0.75rem;
+            color: var(--comment-base);
+        }
+
+        .mock-tab.active {
+            background: linear-gradient(180deg, var(--bg1-hi) 0%, var(--bg0-base) 100%);
+            border: 1px solid var(--accent-hi);
+            border-bottom: none;
+            color: var(--yellow-hi);
+            font-weight: bold;
+            box-shadow: 0 0 6px 1px var(--tab-glow);
+        }
+
+        .nav-bar {
+            background-color: var(--navbar-bg);
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--border-base);
+        }
+
+        .nav-buttons {
+            color: var(--nav-btns);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+
+        .mock-urlbar {
+            background-color: var(--bg0-base);
+            border: 1px solid var(--border-base);
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            color: var(--fg-base);
+            font-size: 0.78rem;
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge-green {
+            background-color: var(--badge-green-bg);
+            color: var(--green-hi);
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            border: 1px solid var(--green-hi);
+        }
+
+        .code-window {
+            background-color: var(--bg0-base);
+            border: 1px solid var(--border-base);
+            border-radius: 6px;
+            overflow: hidden;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .window-bar {
+            background-color: var(--bg1-base);
+            border-bottom: 1px solid var(--border-base);
+            padding: 4px 10px;
+            font-size: 0.72rem;
+            color: var(--comment-base);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .code-body {
+            padding: 0.75rem 1rem;
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        .line-active {
+            background-color: var(--bg1-base);
+            display: block;
+            margin: 0 -1rem;
+            padding: 0 1rem;
+            border-left: 2px solid var(--accent-base);
+        }
+
+        .line-sel {
+            background-color: var(--bg2-hi);
+            padding: 1px 3px;
+            border-radius: 2px;
+        }
+
+        .syn-doc {
+            color: var(--doc-base);
+            font-style: italic;
+        }
+
+        .syn-comment {
+            color: var(--comment-base);
+            font-style: italic;
+        }
+
+        .syn-attr {
+            color: var(--ochre-base);
+            font-style: italic;
+        }
+
+        .syn-kw {
+            color: var(--accent-base);
+            font-weight: bold;
+        }
+
+        .syn-kw-it {
+            color: var(--accent-base);
+            font-style: italic;
+        }
+
+        .syn-type {
+            color: var(--fg-hi);
+        }
+
+        .syn-fn {
+            color: var(--blue-hi);
+            font-weight: bold;
+        }
+
+        .syn-prop {
+            color: var(--blue-base);
+        }
+
+        .syn-life {
+            color: var(--magenta-hi);
+            font-style: italic;
+        }
+
+        .syn-macro {
+            color: var(--red-hi);
+            font-weight: bold;
+        }
+
+        .syn-str {
+            color: var(--green-hi);
+        }
+
+        .syn-esc {
+            color: var(--cyan-hi);
+            font-weight: bold;
+        }
+
+        .syn-num {
+            color: var(--yellow-hi);
+        }
+
+        .syn-enum {
+            color: var(--cyan-base);
+        }
+
+        .terminal-box {
+            background-color: var(--bg0-base);
+            border: 1px solid var(--border-base);
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            font-size: 0.78rem;
+        }
+
+        .ansi-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 4px;
+            margin-top: 0.6rem;
+        }
+
+        .ansi-pill {
+            height: 22px;
+            border-radius: 3px;
+            border: 1px solid var(--border-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           4. MASTER 16-ROW PALETTE TABLE
+           ========================================================================== */
+        .palette-table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border-base);
+            border-radius: 6px;
+        }
+
+        table.palette-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.78rem;
+            background-color: var(--bg0-hi);
+        }
+
+        .palette-matrix th {
+            background-color: var(--bg1-hi);
+            color: var(--accent-base);
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            border-bottom: 2px solid var(--border-base);
+            white-space: nowrap;
+        }
+
+        .palette-matrix td {
+            padding: 0.45rem 0.75rem;
+            border-bottom: 1px solid var(--border-base);
+            vertical-align: middle;
+        }
+
+        .palette-matrix tr:hover td {
+            background-color: var(--bg1-base);
+        }
+
+        .role-name {
+            font-weight: bold;
+            color: var(--fg-hi);
+            white-space: nowrap;
+        }
+
+        .role-desc {
+            color: var(--comment-base);
+            font-size: 0.74rem;
+        }
+
+        .swatch-cell {
+            white-space: nowrap;
+        }
+
+        .swatch-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 8px 3px 4px;
+            border-radius: 4px;
+            background-color: var(--bg0-base);
+            border: 1px solid var(--border-base);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.75rem;
+            color: var(--fg-base);
+            transition: transform 0.1s, border-color 0.1s;
+        }
+
+        .swatch-chip:hover {
+            border-color: var(--accent-base);
+            transform: translateY(-1px);
+        }
+
+        .swatch-box {
+            width: 18px;
+            height: 18px;
+            border-radius: 3px;
+            border: 1px solid rgba(128, 128, 128, 0.4);
+            display: inline-block;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--bg1-hi);
+            color: var(--accent-base);
+            border: 1px solid var(--accent-base);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 1100px) {
+            .dual-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg width="0" height="0" style="position:absolute">
+        <defs>
+            <g id="vernhyde-sigil-geometry">
+                <line x1="235" y1="100" x2="235" y2="210" fill="none" stroke="var(--logo-h)" stroke-width="14"
+                    stroke-linecap="square" stroke-linejoin="miter" />
+                <polyline points="125,190 165,230 275,120" fill="none" stroke="var(--logo-v)" stroke-width="14"
+                    stroke-linecap="square" stroke-linejoin="miter" />
+                <line x1="195" y1="140" x2="195" y2="250" fill="none" stroke="var(--logo-h)" stroke-width="14"
+                    stroke-linecap="square" stroke-linejoin="miter" />
+                <polygon points="215,135 221,145 215,155 209,145" fill="var(--logo-v)" />
+            </g>
+        </defs>
+    </svg>
+
+    <div class="top-bar">
+        <div class="brand-identity">
+            <svg class="header-sigil" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="var(--logo-bg)" />
+                <use href="#vernhyde-sigil-geometry" />
+            </svg>
+            <div>
+                <h1>Vernhyde Amber — Master Theme & Palette Architecture</h1>
+                <p class="subtitle">Complete Dark Charcoal (#0d0f11) & Warm Parchment Light (#f4e6d2) Visual Spec —
+                    Click any swatch to copy</p>
+            </div>
+        </div>
+
+        <div class="header-right">
+            <button class="discord-badge" onclick="copyText('vernhyde', 'Copied Discord handle: vernhyde')"
+                title="Click to copy Discord username">
+                <span>Discord Contact:</span>
+                <span class="discord-prism-name">Vernhyde</span>
+                <span style="color: #8a8280; font-size: 0.72rem;">(@vernhyde — Click to Copy)</span>
+            </button>
+            <div class="controls">
+                <button class="btn active" id="btn-split" onclick="setView('split')">Split View (Both)</button>
+                <button class="btn" id="btn-dark" onclick="setView('dark')">Dark Mode Only</button>
+                <button class="btn" id="btn-light" onclick="setView('light')">Light Mode Only</button>
+                <button class="btn" onclick="togglePageBackdrop()">Flip Page Canvas</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <div>1. Dual-State Brand, UI & Syntax Simulation</div>
+        <span>3-Color SVG Sigil + Discord Gradient + Browser Chrome + Code Editor + ANSI 0–15 Strip</span>
+    </div>
+
+    <div class="dual-grid" id="workspace-grid">
+
+        <!-- DARK MODE PANEL -->
+        <div class="theme-card theme-dark" id="panel-dark">
+            <div class="card-header">
+                <div class="card-title-group">
+                    <svg class="mini-sigil" viewBox="0 0 400 400">
+                        <rect width="100%" height="100%" fill="#0d0f11" />
+                        <use href="#vernhyde-sigil-geometry" />
+                    </svg>
+                    <span class="card-title">DARK MODE — Charcoal & Sigil Gold</span>
+                </div>
+                <span class="card-tag">BG0: #0d0f11 | FG: #dcdcdc | Accent: #e5a93d</span>
+            </div>
+
+            <div class="brand-showcase">
+                <div class="sigil-preview-box" title="Dark Mode 3-Color SVG Logo (#0d0f11, #ffe3bb, #e5a93d)">
+                    <svg viewBox="0 0 400 400" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#0d0f11" />
+                        <use href="#vernhyde-sigil-geometry" />
+                    </svg>
+                </div>
+                <div class="discord-card-preview">
+                    <div>
+                        <strong>Discord Contact:</strong>
+                        <span class="discord-prism-name" style="font-size: 0.9rem; margin-left: 4px;">Vernhyde</span>
+                        <span style="color: var(--comment-base);">(@vernhyde)</span>
+                    </div>
+                    <div style="color: var(--comment-base);">3-Color Sigil SVG: <code
+                            style="color:var(--fg-hi)">#0d0f11</code> (BG) · <code
+                            style="color:var(--fg-hi)">#ffe3bb</code> (H) · <code
+                            style="color:var(--accent-base)">#e5a93d</code> (V + Eye)</div>
+                    <div class="discord-gradient-bar"
+                        title="5-Stop Discord Custom Theme Gradient (Click any hex to copy)">
+                        <span onclick="copyHex('#26181c')">#26181c</span>
+                        <span onclick="copyHex('#4b2b31')">#4b2b31</span>
+                        <span onclick="copyHex('#6f534c')">#6f534c</span>
+                        <span onclick="copyHex('#b55400')">#b55400</span>
+                        <span onclick="copyHex('#e5a93d')">#e5a93d</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="browser-window">
+                <div class="tab-bar">
+                    <div class="mock-tab">Workspace_Notes.md</div>
+                    <div class="mock-tab active">core_engine / renderer.rs*</div>
+                    <div class="mock-tab">System Specs</div>
+                </div>
+                <div class="nav-bar">
+                    <div class="nav-buttons">🡠 🡢 ↻</div>
+                    <div class="mock-urlbar">
+                        <span>https://example.local/workspace/amber-theme-spec</span>
+                        <span class="badge-green">SECURED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-window">
+                <div class="window-bar">
+                    <span>src/renderer.rs — Editor (semantic_tokens: combined)</span>
+                    <span>UTF-8 | Rust</span>
+                </div>
+                <pre class="code-body"><span class="syn-doc">/// Configures palette luminance and contrast
+                        thresholds</span>
+                    <span class="syn-attr">#[derive(Component, Debug, Clone)]</span>
+                    <span class="syn-kw">pub struct</span> <span class="syn-type">ThemeConfig</span>&lt;<span
+                        class="syn-life">'a</span>&gt; {
+                    <span class="syn-kw">pub</span> <span class="syn-prop">contrast_ratio</span>: <span
+                        class="syn-type">f32</span>, <span class="syn-comment">// Target contrast factor</span>
+                    <span class="syn-kw">pub</span> <span class="syn-prop">profile_name</span>: &amp;<span
+                        class="syn-life">'a</span> <span class="syn-type">str</span>,
+                    }
+
+                    <span class="syn-kw-it">impl</span>&lt;<span class="syn-life">'a</span>&gt; <span
+                        class="syn-type">ThemeConfig</span>&lt;<span class="syn-life">'a</span>&gt; {
+                    <span class="line-active"> <span class="syn-kw">pub fn</span> <span
+                            class="syn-fn">validate_palette</span>(&amp;<span class="syn-macro">self</span>, <span
+                            class="syn-prop">luminance</span>: <span class="syn-type">f32</span>) -&gt; <span
+                            class="syn-enum">RenderState</span> {</span>
+                    <span class="syn-macro">info!</span>(<span class="syn-str">"Loading profile: <span
+                            class="syn-esc">{:?}</span>\n"</span>, <span class="line-sel"><span
+                            class="syn-macro">self</span>.<span class="syn-prop">profile_name</span></span>);
+                    <span class="syn-kw-it">if</span> <span class="syn-macro">self</span>.<span
+                        class="syn-prop">contrast_ratio</span> &gt;= <span class="syn-num">4.5</span> &amp;&amp; <span
+                        class="syn-prop">luminance</span> &gt; <span class="syn-num">0.0</span> {
+                    <span class="syn-enum">RenderState::Active</span>(<span class="syn-num">true</span>)
+                    } <span class="syn-kw-it">else</span> {
+                    <span class="syn-enum">RenderState::Fallback</span>
+                    }
+                    }
+                    }
+                </pre>
+            </div>
+
+            <div class="terminal-box">
+                <div><span class="syn-fn">vernhyde@workstation</span> <span class="syn-comment">~</span> <span
+                        class="syn-kw">$</span> fetch-palette --mode dark</div>
+                <div class="ansi-grid">
+                    <div class="ansi-pill" style="background:#0d0f11;color:#8a8280" onclick="copyHex('#0d0f11')">0
+                        #0d0f11</div>
+                    <div class="ansi-pill" style="background:#d9385a;color:#0d0f11" onclick="copyHex('#d9385a')">1
+                        #d9385a</div>
+                    <div class="ansi-pill" style="background:#5f7a50;color:#0d0f11" onclick="copyHex('#5f7a50')">2
+                        #5f7a50</div>
+                    <div class="ansi-pill" style="background:#e5a93d;color:#0d0f11" onclick="copyHex('#e5a93d')">3
+                        #e5a93d</div>
+                    <div class="ansi-pill" style="background:#c87a53;color:#0d0f11" onclick="copyHex('#c87a53')">4
+                        #c87a53</div>
+                    <div class="ansi-pill" style="background:#a85c72;color:#0d0f11" onclick="copyHex('#a85c72')">5
+                        #a85c72</div>
+                    <div class="ansi-pill" style="background:#5a9aa8;color:#0d0f11" onclick="copyHex('#5a9aa8')">6
+                        #5a9aa8</div>
+                    <div class="ansi-pill" style="background:#dcdcdc;color:#0d0f11" onclick="copyHex('#dcdcdc')">7
+                        #dcdcdc</div>
+                    <div class="ansi-pill" style="background:#8a8280;color:#0d0f11" onclick="copyHex('#8a8280')">8
+                        #8a8280</div>
+                    <div class="ansi-pill" style="background:#ff5277;color:#0d0f11" onclick="copyHex('#ff5277')">9
+                        #ff5277</div>
+                    <div class="ansi-pill" style="background:#7fa36b;color:#0d0f11" onclick="copyHex('#7fa36b')">10
+                        #7fa36b</div>
+                    <div class="ansi-pill" style="background:#fee344;color:#0d0f11" onclick="copyHex('#fee344')">11
+                        #fee344</div>
+                    <div class="ansi-pill" style="background:#e69870;color:#0d0f11" onclick="copyHex('#e69870')">12
+                        #e69870</div>
+                    <div class="ansi-pill" style="background:#c97a90;color:#0d0f11" onclick="copyHex('#c97a90')">13
+                        #c97a90</div>
+                    <div class="ansi-pill" style="background:#7ec1cf;color:#0d0f11" onclick="copyHex('#7ec1cf')">14
+                        #7ec1cf</div>
+                    <div class="ansi-pill" style="background:#ffe3bb;color:#0d0f11" onclick="copyHex('#ffe3bb')">15
+                        #ffe3bb</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LIGHT MODE PANEL -->
+        <div class="theme-card theme-light" id="panel-light">
+            <div class="card-header">
+                <div class="card-title-group">
+                    <svg class="mini-sigil" viewBox="0 0 400 400">
+                        <rect width="100%" height="100%" fill="#f4e6d2" />
+                        <use href="#vernhyde-sigil-geometry" />
+                    </svg>
+                    <span class="card-title">LIGHT MODE — Warm Parchment & Burnt Amber</span>
+                </div>
+                <span class="card-tag">BG0: #f4e6d2 | FG: #26181c | Accent: #b55400</span>
+            </div>
+
+            <div class="brand-showcase">
+                <div class="sigil-preview-box" title="Light Mode 3-Color SVG Logo (#f4e6d2, #26181c, #b55400)">
+                    <svg viewBox="0 0 400 400" width="100%" height="100%">
+                        <rect width="100%" height="100%" fill="#f4e6d2" />
+                        <use href="#vernhyde-sigil-geometry" />
+                    </svg>
+                </div>
+                <div class="discord-card-preview">
+                    <div>
+                        <strong>Discord Contact:</strong>
+                        <span class="discord-prism-name" style="font-size: 0.9rem; margin-left: 4px;">Vernhyde</span>
+                        <span style="color: var(--comment-base);">(@vernhyde)</span>
+                    </div>
+                    <div style="color: var(--comment-base);">3-Color Sigil SVG: <code
+                            style="color:var(--fg-hi)">#f4e6d2</code> (BG) · <code
+                            style="color:var(--fg-hi)">#26181c</code> (H) · <code
+                            style="color:var(--accent-base)">#b55400</code> (V + Eye)</div>
+                    <div class="discord-gradient-bar"
+                        title="5-Stop Discord Custom Theme Gradient (Click any hex to copy)">
+                        <span onclick="copyHex('#26181c')">#26181c</span>
+                        <span onclick="copyHex('#4b2b31')">#4b2b31</span>
+                        <span onclick="copyHex('#6f534c')">#6f534c</span>
+                        <span onclick="copyHex('#b55400')">#b55400</span>
+                        <span onclick="copyHex('#e5a93d')">#e5a93d</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="browser-window">
+                <div class="tab-bar">
+                    <div class="mock-tab">Workspace_Notes.md</div>
+                    <div class="mock-tab active">core_engine / renderer.rs*</div>
+                    <div class="mock-tab">System Specs</div>
+                </div>
+                <div class="nav-bar">
+                    <div class="nav-buttons">🡠 🡢 ↻</div>
+                    <div class="mock-urlbar">
+                        <span>https://example.local/workspace/amber-theme-spec</span>
+                        <span class="badge-green">SECURED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-window">
+                <div class="window-bar">
+                    <span>src/renderer.rs — Editor (semantic_tokens: combined)</span>
+                    <span>UTF-8 | Rust</span>
+                </div>
+                <pre class="code-body"><span class="syn-doc">/// Configures palette luminance and contrast
+                        thresholds</span>
+                    <span class="syn-attr">#[derive(Component, Debug, Clone)]</span>
+                    <span class="syn-kw">pub struct</span> <span class="syn-type">ThemeConfig</span>&lt;<span
+                        class="syn-life">'a</span>&gt; {
+                    <span class="syn-kw">pub</span> <span class="syn-prop">contrast_ratio</span>: <span
+                        class="syn-type">f32</span>, <span class="syn-comment">// Target contrast factor</span>
+                    <span class="syn-kw">pub</span> <span class="syn-prop">profile_name</span>: &amp;<span
+                        class="syn-life">'a</span> <span class="syn-type">str</span>,
+                    }
+
+                    <span class="syn-kw-it">impl</span>&lt;<span class="syn-life">'a</span>&gt; <span
+                        class="syn-type">ThemeConfig</span>&lt;<span class="syn-life">'a</span>&gt; {
+                    <span class="line-active"> <span class="syn-kw">pub fn</span> <span
+                            class="syn-fn">validate_palette</span>(&amp;<span class="syn-macro">self</span>, <span
+                            class="syn-prop">luminance</span>: <span class="syn-type">f32</span>) -&gt; <span
+                            class="syn-enum">RenderState</span> {</span>
+                    <span class="syn-macro">info!</span>(<span class="syn-str">"Loading profile: <span
+                            class="syn-esc">{:?}</span>\n"</span>, <span class="line-sel"><span
+                            class="syn-macro">self</span>.<span class="syn-prop">profile_name</span></span>);
+                    <span class="syn-kw-it">if</span> <span class="syn-macro">self</span>.<span
+                        class="syn-prop">contrast_ratio</span> &gt;= <span class="syn-num">4.5</span> &amp;&amp; <span
+                        class="syn-prop">luminance</span> &gt; <span class="syn-num">0.0</span> {
+                    <span class="syn-enum">RenderState::Active</span>(<span class="syn-num">true</span>)
+                    } <span class="syn-kw-it">else</span> {
+                    <span class="syn-enum">RenderState::Fallback</span>
+                    }
+                    }
+                    }
+                </pre>
+            </div>
+
+            <div class="terminal-box">
+                <div><span class="syn-fn">vernhyde@workstation</span> <span class="syn-comment">~</span> <span
+                        class="syn-kw">$</span> fetch-palette --mode light</div>
+                <div class="ansi-grid">
+                    <div class="ansi-pill" style="background:#26181c;color:#f4e6d2" onclick="copyHex('#26181c')">0
+                        #26181c</div>
+                    <div class="ansi-pill" style="background:#b81d3d;color:#f4e6d2" onclick="copyHex('#b81d3d')">1
+                        #b81d3d</div>
+                    <div class="ansi-pill" style="background:#3b5e2b;color:#f4e6d2" onclick="copyHex('#3b5e2b')">2
+                        #3b5e2b</div>
+                    <div class="ansi-pill" style="background:#8a6200;color:#f4e6d2" onclick="copyHex('#8a6200')">3
+                        #8a6200</div>
+                    <div class="ansi-pill" style="background:#6e4228;color:#f4e6d2" onclick="copyHex('#6e4228')">4
+                        #6e4228</div>
+                    <div class="ansi-pill" style="background:#8c3852;color:#f4e6d2" onclick="copyHex('#8c3852')">5
+                        #8c3852</div>
+                    <div class="ansi-pill" style="background:#1f6878;color:#f4e6d2" onclick="copyHex('#1f6878')">6
+                        #1f6878</div>
+                    <div class="ansi-pill" style="background:#e8d5bc;color:#26181c" onclick="copyHex('#e8d5bc')">7
+                        #e8d5bc</div>
+                    <div class="ansi-pill" style="background:#6f534c;color:#f4e6d2" onclick="copyHex('#6f534c')">8
+                        #6f534c</div>
+                    <div class="ansi-pill" style="background:#cf1f45;color:#f4e6d2" onclick="copyHex('#cf1f45')">9
+                        #cf1f45</div>
+                    <div class="ansi-pill" style="background:#5f7a50;color:#f4e6d2" onclick="copyHex('#5f7a50')">10
+                        #5f7a50</div>
+                    <div class="ansi-pill" style="background:#b55400;color:#f4e6d2" onclick="copyHex('#b55400')">11
+                        #b55400</div>
+                    <div class="ansi-pill" style="background:#9c4119;color:#f4e6d2" onclick="copyHex('#9c4119')">12
+                        #9c4119</div>
+                    <div class="ansi-pill" style="background:#a85c72;color:#f4e6d2" onclick="copyHex('#a85c72')">13
+                        #a85c72</div>
+                    <div class="ansi-pill" style="background:#2b6f7e;color:#f4e6d2" onclick="copyHex('#2b6f7e')">14
+                        #2b6f7e</div>
+                    <div class="ansi-pill" style="background:#16191d;color:#f4e6d2" onclick="copyHex('#16191d')">15
+                        #16191d</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-heading">
+        <div>2. Master Palette & Syntax Architecture (All 64 Swatches)</div>
+        <span>Click any chip to copy hex code to clipboard</span>
+    </div>
+
+    <div class="palette-table-wrap">
+        <table class="palette-matrix">
+            <thead>
+                <tr>
+                    <th>Token / System Role</th>
+                    <th>Dark Base</th>
+                    <th>Dark High-Vis</th>
+                    <th>Light Base</th>
+                    <th>Light High-Vis</th>
+                    <th>Palette Source & Syntax Assignment</th>
+                </tr>
+            </thead>
+            <tbody id="palette-tbody"></tbody>
+        </table>
+    </div>
+
+    <div class="toast" id="copy-toast">Copied!</div>
+
+    <script>
+        const PALETTE_DATA = [
+            ["BG0 (Deep / Main Canvas)", "#0d0f11", "#111417", "#f4e6d2", "#e8d5bc", "Base Editor, Terminal, & Window Canvas (Charcoal / Parchment)"],
+            ["BG1 (Elevated UI / Panels)", "#16191d", "#1f2329", "#eedcc5", "#dfd0ba", "Active Line, Sidebars, Panels, Cards, Nav Bars"],
+            ["BG2 (Warm Tint / Highlight)", "#26181c", "#4b2b31", "#e5cdab", "#d4c0a5", "Suit Jacket / Warm Tan — Selection BG, Diff/Highlight Tint"],
+            ["UI Border / Muted", "#3a3235", "#53383d", "#c4b097", "#997b73", "Suit Pants / Light Fur — Split Borders, Inactive Tabs, Gutter"],
+            ["Original Dark Earth", "#6f534c", "#593d45", "#6f534c", "#593d45", "Dark Fur & Hoof — Dark Nav Bar, Subtle UI Badges, Fold Markers"],
+            ["Comment / Muted FG", "#8a8280", "#afabaa", "#6f534c", "#53383d", "Grey Fur / Dark Fur — Comments, Punctuation, Delimiters"],
+            ["Doc Comment / Subtext", "#997b73", "#a8845e", "#825c38", "#6f534c", "Light Fur & M81 Khaki — Docstrings (///, //!), Subtext"],
+            ["Primary Foreground", "#dcdcdc", "#ffe3bb", "#26181c", "#16191d", "Neutral White & Skull Bone / Deep Suit Jacket — Variables, Types"],
+            ["Primary Accent (Gold/Amber)", "#e5a93d", "#ffa72e", "#b55400", "#9c4119", "Logo Gold & Sigil / Burnt Amber — Keywords, Operators, Tags, Cursor"],
+            ["Canyon Ochre (Attributes)", "#f09654", "#ffa72e", "#b04818", "#c87a53", "Canyon Ochre / Rust — Rust Attributes (#[...]), Derive Traits, Meta"],
+            ["ANSI Red (Crimson)", "#d9385a", "#ff5277", "#b81d3d", "#cf1f45", "Flesh Gradient — Macros (info!), self, Errors, Deletions"],
+            ["ANSI Green (M81 Moss)", "#5f7a50", "#7fa36b", "#3b5e2b", "#5f7a50", "M81 Woodland Green & Leaf — Strings, Text Literals, Git Additions"],
+            ["ANSI Yellow (Eye / Bronze)", "#e5a93d", "#fee344", "#8a6200", "#b55400", "Eye Yellow / Antique Bronze — Numbers, Booleans, Constants"],
+            ["ANSI Blue (Ochre / Horn)", "#c87a53", "#e69870", "#6e4228", "#9c4119", "Horn & Jacket Trim — Functions (#e69870/#9c4119), Properties (#c87a53/#6e4228)"],
+            ["ANSI Magenta (Hoof Plum)", "#a85c72", "#c97a90", "#8c3852", "#a85c72", "Boosted Hoof — Rust Lifetimes ('a), Labels ('label)"],
+            ["ANSI Cyan (Oasis Slate)", "#5a9aa8", "#7ec1cf", "#1f6878", "#2b6f7e", "Beach Water — Escape Chars (\\n), Regex, Enum Variants, Constructors"]
+        ];
+
+        const tbody = document.getElementById("palette-tbody");
+        PALETTE_DATA.forEach(([role, dBase, dHi, lBase, lHi, desc]) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td class="role-name">${role}</td>
+                <td class="swatch-cell">${makeChip(dBase)}</td>
+                <td class="swatch-cell">${makeChip(dHi)}</td>
+                <td class="swatch-cell">${makeChip(lBase)}</td>
+                <td class="swatch-cell">${makeChip(lHi)}</td>
+                <td class="role-desc">${desc}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        function makeChip(hex) {
+            return `<button class="swatch-chip" onclick="copyHex('${hex}')" title="Click to copy ${hex}">
+                <span class="swatch-box" style="background-color: ${hex};"></span>
+                <span>${hex}</span>
+            </button>`;
+        }
+
+        function copyHex(hex) {
+            copyText(hex, `Copied ${hex}`);
+        }
+
+        function copyText(text, message) {
+            navigator.clipboard.writeText(text);
+            const toast = document.getElementById("copy-toast");
+            toast.textContent = message;
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 1400);
+        }
+
+        function setView(mode) {
+            const grid = document.getElementById("workspace-grid");
+            const pDark = document.getElementById("panel-dark");
+            const pLight = document.getElementById("panel-light");
+            document.querySelectorAll(".controls .btn").forEach(b => b.classList.remove("active"));
+
+            if (mode === "split") {
+                grid.classList.remove("single-col");
+                pDark.style.display = "flex";
+                pLight.style.display = "flex";
+                document.getElementById("btn-split").classList.add("active");
+            } else if (mode === "dark") {
+                grid.classList.add("single-col");
+                pDark.style.display = "flex";
+                pLight.style.display = "none";
+                document.getElementById("btn-dark").classList.add("active");
+                document.documentElement.dataset.page = "dark";
+            } else if (mode === "light") {
+                grid.classList.add("single-col");
+                pDark.style.display = "none";
+                pLight.style.display = "flex";
+                document.getElementById("btn-light").classList.add("active");
+                document.documentElement.dataset.page = "light";
+            }
+        }
+
+        function togglePageBackdrop() {
+            const root = document.documentElement;
+            root.dataset.page = root.dataset.page === "dark" ? "light" : "dark";
+        }
+    </script>
+</body>
+
+</html>
